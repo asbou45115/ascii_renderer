@@ -1,6 +1,8 @@
 # ASCII Renderer + GUI
 A simple desktop application to convert images into ASCII art using Python. Users can adjust resolution, edge detection sensitivity, and process multiple images at once.
 
+There is also a web frontend version for this viewable [here](https://asbou45115.github.io/ascii_renderer/)
+
 ![alt text](images/image.png)
 
 ![input](images/moon.png)
@@ -27,18 +29,6 @@ python -m http.server 8000 --directory docs
 Then open:
 ```text
 http://127.0.0.1:8000/
-```
-
-To publish it:
-1) Push the repo to GitHub.
-2) Open the repository's **Settings > Pages**.
-3) Set **Source** to **Deploy from a branch**.
-4) Select the `main` branch and `/docs` folder, then save.
-
-After GitHub Pages finishes deploying, the frontend should be available at:
-
-```text
-https://asbou45115.github.io/ascii_renderer/
 ```
 
 ## Installation
