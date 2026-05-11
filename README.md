@@ -16,6 +16,31 @@ A simple desktop application to convert images into ASCII art using Python. User
 
 **NOTE**: GUI saves output with "_ascii" appended to picture name. Use CLI to save with same name
 
+## Web Frontend
+This repo also includes a static browser frontend in `docs/` for GitHub Pages. It runs fully client-side, so uploaded images stay in the browser and no backend is required.
+
+To test it locally:
+```bash
+python -m http.server 8000 --directory docs
+```
+
+Then open:
+```text
+http://127.0.0.1:8000/
+```
+
+To publish it:
+1) Push the repo to GitHub.
+2) Open the repository's **Settings > Pages**.
+3) Set **Source** to **Deploy from a branch**.
+4) Select the `main` branch and `/docs` folder, then save.
+
+After GitHub Pages finishes deploying, the frontend should be available at:
+
+```text
+https://asbou45115.github.io/ascii_renderer/
+```
+
 ## Installation
 ### Option 1: Run executable
 1) Download the latest release from the [Releases](https://github.com/asbou45115/ascii_renderer/releases)

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ASCII Image Renderer</title>
+    <meta
+      name="description"
+      content="Convert images into ASCII art directly in your browser."
+    >
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <h1>ASCII Image Renderer</h1>
+        <p>
+          Upload an image and render it as ASCII art using the same luminance
+          mapping and edge-direction idea as the Python desktop app.
+        </p>
+      </section>
+
+      <section class="panel controls" aria-label="Renderer controls">
+        <label class="file-picker">
+          <span>Choose image</span>
+          <input id="imageInput" type="file" accept="image/*">
+        </label>
+
+        <label>
+          Resolution
+          <select id="resolutionPreset">
+            <option value="native">Native resolution</option>
+            <option value="854x480">480p (854x480)</option>
+            <option value="1280x720">720p (1280x720)</option>
+            <option value="1920x1080" selected>1080p (1920x1080)</option>
+            <option value="2560x1440">1440p (2560x1440)</option>
+            <option value="3840x2160">4K (3840x2160)</option>
+            <option value="custom">Custom</option>
+          </select>
+        </label>
+
+        <div id="customSize" class="custom-size" hidden>
+          <label>
+            Width
+            <input id="customWidth" type="number" min="8" step="8" value="1920">
+          </label>
+          <label>
+            Height
+            <input id="customHeight" type="number" min="8" step="8" value="1080">
+          </label>
+        </div>
+
+        <label class="range-label">
+          <span>Edge tolerance</span>
+          <input id="edgeTolerance" type="range" min="0" max="100" value="13">
+          <input id="edgeToleranceNumber" type="number" min="0" max="100" value="13">
+        </label>
+
+        <div class="actions">
+          <button id="renderButton" type="button" disabled>Render ASCII</button>
+          <button id="copyButton" type="button" disabled>Copy text</button>
+          <button id="downloadButton" type="button" disabled>Download PNG</button>
+        </div>
+
+        <p id="status" class="status" role="status">Choose an image to begin.</p>
+      </section>
+
+      <section class="workspace">
+        <article class="panel preview-card">
+          <h2>Input</h2>
+          <canvas id="inputCanvas" aria-label="Input image preview"></canvas>
+        </article>
+
+        <article class="panel preview-card">
+          <h2>Rendered PNG</h2>
+          <canvas id="outputCanvas" aria-label="ASCII render preview"></canvas>
+        </article>
+      </section>
+
+      <section class="panel text-card">
+        <div class="text-header">
+          <h2>ASCII Text</h2>
+          <span id="textMeta">No output yet</span>
+        </div>
+        <pre id="asciiOutput" aria-label="ASCII text output"></pre>
+      </section>
+    </main>
+  </body>
+</html>
